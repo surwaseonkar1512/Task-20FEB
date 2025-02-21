@@ -3,8 +3,9 @@ function selectPlan(planId, price) {
     plan.classList.remove("selected");
   });
 
-  let selectedPlan = document.getElementById(planId).parentElement;
-  selectedPlan.classList.add("selected");
-
+  document.getElementById(planId).checked = true;
   document.getElementById("total-price").innerText = `$${price}.00 USD`;
+
+  let selectedPlan = document.getElementById(planId).closest(".plan");
+  selectedPlan.classList.add("selected");
 }

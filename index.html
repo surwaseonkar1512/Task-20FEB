@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pricing Selection</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
   </head>
   <body class="container">
     <div class="pricing-box">
@@ -14,7 +15,6 @@
         <div class="divider"></div>
       </div>
 
-      <!-- Plan 1 -->
       <div class="plan" onclick="selectPlan('unit1', 10)">
         <input type="radio" name="unit" id="unit1" value="10" class="radio" />
         <label for="unit1" class="label1">
@@ -32,7 +32,6 @@
         </label>
       </div>
 
-      <!-- Plan 2 (Popular) -->
       <div class="plan popular" onclick="selectPlan('unit2', 18)">
         <input
           type="radio"
@@ -95,7 +94,13 @@
 
       <!-- Plan 3 -->
       <div class="plan" onclick="selectPlan('unit3', 24)">
-        <input type="radio" name="unit" id="unit3" value="24" class="radio radio3" />
+        <input
+          type="radio"
+          name="unit"
+          id="unit3"
+          value="24"
+          class="radio radio3"
+        />
 
         <label for="unit3" class="label1">
           <div class="details">
@@ -118,19 +123,5 @@
 
       <button class="add-to-cart">+ Add to Cart</button>
     </div>
-
-    <script>
-      function selectPlan(planId, price) {
-        document.querySelectorAll(".plan").forEach((plan) => {
-          plan.classList.remove("selected");
-        });
-
-        document.getElementById(planId).checked = true;
-        document.getElementById("total-price").innerText = `$${price}.00 USD`;
-
-        let selectedPlan = document.getElementById(planId).closest(".plan");
-        selectedPlan.classList.add("selected");
-      }
-    </script>
   </body>
 </html>
