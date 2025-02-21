@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Selection</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="container">
+    <div class="pricing-box">
+      <div class="header">
+        <div class="divider"></div>
+        <h2 class="title">YAY! It's BOGO</h2>
+        <div class="divider"></div>
+      </div>
+
+      <!-- Plan 1 -->
+      <div class="plan" onclick="selectPlan('unit1', 10)">
+        <input type="radio" name="unit" id="unit1" value="10" class="radio" />
+        <label for="unit1" class="label1">
+          <div class="details">
+            <div class="plan-header">
+              <span class="plan-title">1 Unit</span>
+              <div class="discount">10% Off</div>
+            </div>
+            <span class="plan-subtitle">Standard Price</span>
+          </div>
+          <div class="pricing">
+            <span class="price">$10.00 USD</span>
+            <span class="old-price">$24.00 USD</span>
+          </div>
+        </label>
+      </div>
+
+      <!-- Plan 2 (Popular) -->
+      <div class="plan popular" onclick="selectPlan('unit2', 18)">
+        <input
+          type="radio"
+          name="unit"
+          id="unit2"
+          value="18"
+          class="radio margin-top"
+        />
+        <label for="unit2" class="label">
+          <div class="plan-header">
+            <div class="price-discount">
+              <span class="plan-title">2 Unit</span>
+              <div class="discount">20% Off</div>
+            </div>
+            <div class="pricing">
+              <span class="price">$18.00 USD</span>
+              <span class="old-price">$24.00 USD</span>
+            </div>
+          </div>
+
+          <div class="most-popular-wrapper">
+            <div class="most-popular-icon most-popular-icon-left">&#9698;</div>
+            <div class="most-popular">MOST POPULAR</div>
+            <div class="most-popular-icon most-popular-icon-right">&#9699;</div>
+          </div>
+
+          <div class="dropdowns">
+            <div class="dropdown-labels">
+              <span>Size</span><span>Colour</span>
+            </div>
+            <div class="dropdowns-group">
+              <span class="dropdown-index">#1</span>
+              <select class="dropdown">
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+              </select>
+              <select class="dropdown">
+                <option>Black</option>
+                <option>White</option>
+                <option>Blue</option>
+              </select>
+            </div>
+            <div class="dropdowns-group">
+              <span class="dropdown-index">#2</span>
+              <select class="dropdown">
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+              </select>
+              <select class="dropdown">
+                <option>Black</option>
+                <option>White</option>
+                <option>Blue</option>
+              </select>
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="plan" onclick="selectPlan('unit3', 24)">
+        <input type="radio" name="unit" id="unit3" value="24" class="radio radio3" />
+
+        <label for="unit3" class="label1">
+          <div class="details">
+            <div class="plan-header">
+              <span class="plan-title">3 Unit</span>
+              <div class="discount2">30% Off</div>
+            </div>
+          </div>
+          <div class="pricing">
+            <span class="price">$24.00 USD</span>
+            <span class="old-price">$24.00 USD</span>
+          </div>
+        </label>
+      </div>
+
+      <div class="footer">
+        <p class="free-delivery">Free Delivery</p>
+        <p class="total">Total: <span id="total-price">$10.00 USD</span></p>
+      </div>
+
+      <button class="add-to-cart">+ Add to Cart</button>
+    </div>
+
+    <script>
+      function selectPlan(planId, price) {
+        document.querySelectorAll(".plan").forEach((plan) => {
+          plan.classList.remove("selected");
+        });
+
+        document.getElementById(planId).checked = true;
+        document.getElementById("total-price").innerText = `$${price}.00 USD`;
+
+        let selectedPlan = document.getElementById(planId).closest(".plan");
+        selectedPlan.classList.add("selected");
+      }
+    </script>
+  </body>
+</html>
